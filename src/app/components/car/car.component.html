@@ -7,17 +7,23 @@
 <table *ngIf="dataLoaded==true" class="table">
     <thead>
         <tr>
+            <th>Resim</th>
             <th>Araç Adı</th>
-            <th>Model Yılı</th>
-            <th>Renk</th>
+            <th>Araç Modeli</th>
             <th>Kiralama Ücreti</th>
+            
         </tr>
-        <tr *ngFor="let car of cars">
+        <tr *ngFor="let car of carDtos">
+            <td><img style="height: 40px;" *ngIf="car.images.length !== 0" [src]="baseImageUrl + car.images[0]" alt=""> <img style="height: 40px;" *ngIf="car.images.length === 0" [src]="baseImageUrl + defaultImage" alt=""></td>
             <td>{{car.brandName}}</td>
-            <td>{{car.dailyPrice}}</td>
-            <td>{{car.colorName}}</td>
-            <td>{{car.dailyPrice}}</td>
-            <td>{{car.description}}</td>
+            <td>{{car.modelYear}}</td>
+            <td>{{car.dailyPrice}} ₺</td>
+            <a
+            routerLink="/cars/cardetail/{{ car.carId }}"
+            class="bg-dark btn text-white"
+            >Details</a
+          >
+
         </tr>
     </thead>
 </table>
