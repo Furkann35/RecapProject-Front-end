@@ -11,7 +11,7 @@ import { ColorService } from 'src/app/services/color.service';
 export class ColorComponent implements OnInit {
   colors: Color[] = [];
   currentColor: Color;
-
+  filterColor: "";
   constructor(private colorService: ColorService, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -19,7 +19,7 @@ export class ColorComponent implements OnInit {
     //   if (params["colorId"]) {
     //     this.getColorsByCar(params["colorId"])
     //   } else {
-        this.getColors()
+    this.getColors()
     //   }
     // })
   }
@@ -37,7 +37,7 @@ export class ColorComponent implements OnInit {
     }))
   }
 
-  
+
   setCurrentColor(color: Color) {
     this.currentColor = color;
   }

@@ -1,29 +1,48 @@
+
+
+<div class="col-md-9">
+
 <div *ngIf="dataLoaded==false" class="text-center">
     <div class="spinner-border" role="status">
         <span class="visually-hidden">Loading...</span>
     </div>
 </div>
 
+<div class="mb-3">
+    <label for="filterText" class="form-label">Araç ara</label>
+    <input type="text" [(ngModel)]="filterText" class="form-control" id="filterText"
+        placeholder="arama ifadesi giriniz">
+</div>
+
+
+
+<div *ngIf="filterText" class="alert alert-success">
+    {{filterText}} aradınız
+</div>
+<app-filter-car></app-filter-car>
 <table *ngIf="dataLoaded==true" class="table">
     <thead>
         <tr>
             <th>Resim</th>
-            <th>Araç Adı</th>
-            <th>Araç Modeli</th>
-            <th>Kiralama Ücreti</th>
-            
+            <th>Marka</th>
+            <th>Model</th>
+            <th>Fiyat</th>
+
         </tr>
-        <tr *ngFor="let car of carDtos">
-            <td><img style="height: 40px;" *ngIf="car.images.length !== 0" [src]="baseImageUrl + car.images[0]" alt=""> <img style="height: 40px;" *ngIf="car.images.length === 0" [src]="baseImageUrl + defaultImage" alt=""></td>
+        <tr *ngFor="let car of cars | filterCar:filterText">
+            <td><img style="height: 40px;" *ngIf="car.images.length !== 0" [src]="baseImageUrl + car.images[0]" alt="">
+                <img style="height: 40px;" *ngIf="car.images.length === 0" [src]="baseImageUrl + defaultImage" alt="">
+            </td>
             <td>{{car.brandName}}</td>
             <td>{{car.modelYear}}</td>
             <td>{{car.dailyPrice}} ₺</td>
-            <a
-            routerLink="/cars/cardetail/{{ car.carId }}"
-            class="bg-dark btn text-white"
-            >Details</a
-          >
 
+            <a routerLink="/cars/cardetail/{{ car.carId }}" class="bg-success btn text-white">Detaylar</a>
         </tr>
     </thead>
 </table>
+
+<div *ngIf="empty==true">
+    <h2 class="mt-4"> Filtereye uygun araç bulunamadı</h2>
+</div>
+

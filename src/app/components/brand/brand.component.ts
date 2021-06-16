@@ -7,10 +7,12 @@ import { BrandService } from 'src/app/services/brand.service';
   selector: 'app-brand',
   templateUrl: './brand.component.html',
   styleUrls: ['./brand.component.css']
+ 
 })
 export class BrandComponent implements OnInit {
   brands: Brand[] = [];
   currentBrand: Brand;
+  filterBrand:"";
   constructor(private brandService: BrandService, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {

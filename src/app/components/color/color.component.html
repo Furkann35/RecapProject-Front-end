@@ -1,9 +1,27 @@
-<ul class="list-group">
-      <li  class="list-group-item active" aria-current="true">Renkler</li>
-    <li 
-    (click)= "setCurrentColor(color)"
-    routerLink="/cars/color/{{ color.colorId }}"
-    *ngFor="let color of colors"  [class]="getCurrentColorClass(color)">{{color.colorName}}</li>
-  </ul>
 
-  <h5 *ngIf="currentColor">{{currentColor.colorName}}</h5>
+<div class="mb-3">
+  <label for="filterColor" class="form-label">Renk ara</label>
+  <input type="text" [(ngModel)]="filterColor" class="form-control" id="filterColor"
+      placeholder="arama ifadesi giriniz">
+</div>
+
+
+
+  
+<ul class="list-group">
+  <li class="list-group-item bg-light fw-bold cursor-pointer btn-toggle collapsed"  data-bs-toggle="collapse"
+  data-bs-target="#brands-collapse"
+  aria-expanded="true">Renkler
+  <!-- <span class="badge bg-dark total">{{color.length}}</span> -->
+</li>
+    <div class="collapse show" id="brands-collapse">
+      <li
+      (click)= "setCurrentColor(color)"
+        routerLink="/cars/color/{{ color.colorId }}"
+        *ngFor="let color of colors|filterColor:filterColor"
+        [class]="getCurrentColorClass(color)"
+        class="cursor-pointer outline-none shadow-none">
+        {{ color.colorName }}
+      </li>
+    </div>
+  </ul>

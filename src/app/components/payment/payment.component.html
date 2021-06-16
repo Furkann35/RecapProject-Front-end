@@ -1,0 +1,105 @@
+<div class="row" >
+    <div class="col-md-2"></div>
+    <div style="margin-top: 120px;" class="col-md-4">
+      <h1 style="margin-left: 70px;">Hesap Özeti</h1>
+      <div class="card" style="width: 18rem;">
+        
+        
+        <ul *ngIf="car && rentalModel" class="list-group list-group-flush">
+            <li class="list-group-item"><b style="font-weight: 550;">Araba Açıklaması: </b>{{car.description}}</li>
+          <li class="list-group-item"><b style="font-weight: 550;">Araba Markası: </b>{{car.brandName}}</li>
+          <li class="list-group-item"><b style="font-weight: 550;">Araba Rengi: </b>{{car.colorName}}</li>
+          <li class="list-group-item"><b style="font-weight: 550;">Kiralama Tarihi: </b>{{rentalModel.rentDate}}</li>
+          <li class="list-group-item"><b style="font-weight: 550;">Dönüş Tarihi: </b>{{rentalModel.returnDate}}</li>
+          <li class="list-group-item"><b style="font-weight: 550;">Toplam Gün: </b>{{diffDays}}</li>
+          <li class="list-group-item"><b style="font-weight: 550;">Toplam Tutar: </b>{{price}}</li>
+        </ul>     
+      </div>
+      
+      
+    </div>
+    <div style="margin-top: 120px;" class="col-md-4">
+      <body class="text-center">
+        <main class="form-signin">
+          <form [formGroup]="paymentForm">
+            <h1 class="h3 mb-3 fw-normal">Kart Bilgilerinizi Giriniz</h1>
+      
+            <div style="margin-top: 5px;" class="form-floating">
+              <input
+                type="number"
+                class="form-control"
+                id="floatingPassword"
+                placeholder="Kart Numarası"
+                formControlName="cardNumber"
+              />
+              <label for="floatingPassword">Kart Numarası</label>
+            </div>
+  
+  
+            <div style="margin-top: 5px;" class="form-floating">
+              <input
+                type="text"
+                class="form-control"
+                id="floatingPassword"
+                placeholder="Kart Üzerindeki İsim"
+                formControlName="cardName"
+              />
+              <label for="floatingPassword">Kart Üzerindeki İsim</label>
+            </div>
+      
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div style="margin-top: 5px;" class="form-floating">
+                                <input
+                                  type="number"
+                                  class="form-control"
+                                  id="floatingPassword"
+                                  placeholder="AA"
+                                  formControlName="cardMonth"
+                                />
+                                <label for="floatingPassword">AA</label>
+                              </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div style="margin-top: 5px;" class="form-floating">
+                                <input
+                                  type="number"
+                                  class="form-control"
+                                  id="floatingPassword"
+                                  placeholder="YY"
+                                  formControlName="cardYear"
+                                />
+                                <label for="floatingPassword">YY</label>
+                              </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div style="margin-top: 5px;" class="form-floating">
+                        <input 
+                          type="number"
+                          class="form-control"
+                          id="floatingPassword"
+                          placeholder="CCV"
+                          formControlName="cardCcv"
+                        />
+                        <label for="floatingPassword">CCV</label>
+                      </div>
+                </div>
+            </div>
+                <button style="margin-top: 10px;"
+              (click) = "payment()"
+              class="w-100 btn btn-lg btn-primary"
+              type="submit">
+              Ödeme
+            </button>       
+          </form>
+        </main>
+      </body>
+      
+    
+    </div>
+    <div class="col-md-2"></div>
+  </div>
