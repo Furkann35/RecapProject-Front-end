@@ -1,0 +1,21 @@
+<form [formGroup]="brandAddForm">
+    <div class="mb-3">
+        <label for="modelYear">Araç markası</label>
+        <div class="form-group">
+            <input type="text" id="brandName" formControlName="brandName" class="form-control"
+                placeholder="Araç markası" />
+        </div>
+    </div>
+
+    <button class="btn btn-fill btn-success" (click)="add()" style="float: inherit;" >Ekle </button>
+<br>
+</form>
+<br>
+
+<p class="list-group">
+    <a class="list-group-item list-group-item-action active">
+        Markalar
+    </a>
+    <a *ngFor="let brand of brands"class="list-group-item list-group-item-action">{{brand.brandName}}</a>
+
+</p>

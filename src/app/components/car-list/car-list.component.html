@@ -1,0 +1,33 @@
+<button type="button" click="routerLink" routerLink="add" class="btn btn-primary btn-lg btn-block">Araç ekle</button>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            
+            <th scope="col">Araç Id</th>
+            <th scope="col">Araç İsmi</th>
+            <th scope="col">Araç Markası</th>
+            <th scope="col">Araç rengi</th>
+            <th scope="col">Araç yılı</th>
+            <th scope="col">Araç ücreti</th>
+            <th scope="col">Araç açıklaması</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let car of cars">
+            <th scope="row">{{car.carId}}</th>
+            <td>{{car.carName}}</td>
+            <td>{{car.brandName}}</td>
+            <td>{{car.colorName}}</td>
+            <td>{{car.modelYear}}</td>
+            <td>{{car.dailyPrice}}</td>
+            <td>{{car.description}}</td>
+            <td>
+                <button type="button" click="routerLink" routerLink="update" class="btn btn-info">Güncelle</button>
+            <td>
+        </tr>
+    </tbody>
+</table>
+
+

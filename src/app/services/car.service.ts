@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Car } from '../models/car';
 
 import { ListResponseModel } from '../models/listResponseModel';
+import { ResponseModel } from '../models/responseModel';
 import { SingleResponseModel } from '../models/singleResponseModel';
 
 @Injectable({
@@ -28,7 +29,7 @@ export class CarService {
     let newPath = this.apiUrl + "getcarsbycolorid?colorId=" + colorId
     return this.httpClient.get<ListResponseModel<Car>>(newPath);
   }
-  
+
   getCarDetailByCarId(carId: number) {
     let newPath = this.apiUrl + "getcardetailbyid?carId=" + carId
     return this.httpClient.get<ListResponseModel<Car>>(newPath);
@@ -43,5 +44,10 @@ export class CarService {
     let newPath = this.apiUrl + "getcardetails"
     return this.httpClient.get<ListResponseModel<Car>>(newPath);
   }
+
+  add(car:Car) {
+    return this.httpClient.post<ResponseModel>(this.apiUrl + "add ", car)
+  }
+  
 
 }

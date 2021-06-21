@@ -1,0 +1,7 @@
+<p><button type="button" routerLink="/brands/list/add"  class="btn btn-primary">Araç ekle</button></p>
+<div class="list-group">
+    <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
+        Markalar
+    </a>
+    <a *ngFor="let brand of brands" class="list-group-item list-group-item-action">{{brand.brandName}}</a>
+</div>
