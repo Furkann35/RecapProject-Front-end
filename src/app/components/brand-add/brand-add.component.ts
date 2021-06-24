@@ -18,7 +18,6 @@ export class BrandAddComponent implements OnInit {
 
   ngOnInit(): void {
     this.BrandAddForm();
-    this.getBrands();
   }
 
 BrandAddForm(){
@@ -33,17 +32,12 @@ add() {
     let brandModel = Object.assign({}, this.brandAddForm.value)
     console.log(brandModel)
     this.brandService.add(brandModel).subscribe(response => {
-      this.toastrService.success("Araç eklendi", "Başarılı")
+      this.toastrService.success("Marka eklendi", "Başarılı")
     })
   } else {
     this.toastrService.error("Formunuz eksik", "Dikkat")
   }
 }
 
-getBrands(){
-  this.brandService.getBrands().subscribe(response=>{
-    this.brands = response.data
-  })
-}
 
 }

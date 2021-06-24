@@ -8,23 +8,17 @@ import { BrandService } from 'src/app/services/brand.service';
   styleUrls: ['./brand-list.component.css']
 })
 export class BrandListComponent implements OnInit {
-  brands: Brand[] = [];
-
-  constructor(private brandService: BrandService) { }
+brands:Brand[]=[];
+  constructor(private brandService:BrandService) { }
 
   ngOnInit(): void {
     this.getBrands()
   }
 
 
-  getBrands() {
-    this.brandService.getBrands().subscribe((response => {
-      this.brands = response.data
-    }))
+  getBrands(){
+    this.brandService.getBrands().subscribe(response=>{
+      this.brands=response.data
+    })
   }
-
-  brandAdd(){
-    console.log("çalıştı")
-  }
-
 }

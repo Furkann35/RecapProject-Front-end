@@ -1,7 +1,22 @@
-<p><button type="button" routerLink="/brands/list/add"  class="btn btn-primary">Araç ekle</button></p>
-<div class="list-group">
-    <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
-        Markalar
-    </a>
-    <a *ngFor="let brand of brands" class="list-group-item list-group-item-action">{{brand.brandName}}</a>
-</div>
+
+<button type="button" click="routerLink" routerLink="add" class="btn btn-primary btn-lg btn-block">Araç ekle</button>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            
+            <th scope="col">Marka ismi</th>
+           
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let brand of brands">
+            <th scope="row">{{brand.brandId}}</th>
+            <td>{{brand.brandName}}</td>
+            
+            <td>
+                <button class="btn btn-warning" click="routerLink" routerLink="update/{{brand.brandId}}">Güncelle</button>
+            <td>
+        </tr>
+    </tbody>
+</table>

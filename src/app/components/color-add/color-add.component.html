@@ -1,0 +1,13 @@
+<form [formGroup]="colorAddForm">
+    <div class="mb-3">
+        <label for="modelYear">Araç rengi</label>
+        <div class="form-group">
+            <input type="text" id="colorName" formControlName="colorName" class="form-control"
+                placeholder="Araç rengi" />
+        </div>
+    </div>
+
+    <button class="btn btn-fill btn-success" (click)="add()" style="float: inherit;" >Ekle </button>
+<br>
+</form>
+<br>

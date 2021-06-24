@@ -23,8 +23,13 @@ import { PaymentComponent } from './components/payment/payment.component';
 import { ToastrModule } from 'ngx-toastr';
 import { CarAddComponent } from './components/car-add/car-add.component';
 import { CarListComponent } from './components/car-list/car-list.component';
-import { BrandListComponent } from './components/brand-list/brand-list.component';
 import { BrandAddComponent } from './components/brand-add/brand-add.component';
+import { ColorAddComponent } from './components/color-add/color-add.component';
+import { BrandListComponent } from './components/brand-list/brand-list.component';
+import { ColorListComponent } from './components/color-list/color-list.component';
+import { CarUpdateComponent } from './components/car-update/car-update.component';
+import { ColorUpdateComponent } from './components/color-update/color-update.component';
+import { BrandUpdateComponent } from './components/brand-update/brand-update.component';
 
 @NgModule({
   declarations: [
@@ -44,8 +49,13 @@ import { BrandAddComponent } from './components/brand-add/brand-add.component';
     PaymentComponent,
     CarAddComponent,
     CarListComponent,
-    BrandListComponent,
     BrandAddComponent,
+    ColorAddComponent,
+    BrandListComponent,
+    ColorListComponent,
+    CarUpdateComponent,
+    ColorUpdateComponent,
+    BrandUpdateComponent,
 ],
   imports: [
     BrowserModule,

@@ -23,12 +23,18 @@ export class BrandService {
     return this.httpClient.get<ListResponseModel<Brand>>(newPath)
   }
 
+ 
+
   getByBrandId(id: number): Observable<SingleResponseModel<Brand>> {
     let newPath = this.apiUrl + "getbyid?id=" + id
     return this.httpClient.get<SingleResponseModel<Brand>>(newPath)
   }
   add(brand: Brand) {
     return this.httpClient.post<ResponseModel>(this.apiUrl + "brands/add ", brand)
+  }
+
+  update(brand:Brand):Observable<ResponseModel>{
+    return this.httpClient.post<ResponseModel>(this.apiUrl+"brands/update", brand)
   }
 
 }
