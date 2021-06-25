@@ -51,7 +51,7 @@ export class BrandUpdateComponent implements OnInit {
       let brandMode = Object.assign({brandId:Number(this.brandId)}, this.brandUpdate.value)
       console.log(brandMode)
       this.brandService.update(brandMode).subscribe(response => {
-        this.toastrService.success("Araç güncellendi", "Başarılı")
+        this.toastrService.success("Marka güncellendi", "Başarılı")
       }, responseError => {
         if (responseError.error.Errors.length > 0) {
           for (let i = 0; i < responseError.error.Errors.length.length; i++) {
