@@ -1,0 +1,22 @@
+
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            
+            <th scope="col">Kullanıcı ismi</th>
+            <th scope="col">Kullanıcı soy ismi</th>
+            <th scope="col">Kullanıcı mail</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of users">
+            <th scope="row">{{user.firstName}}</th>
+            <td>{{user.lastName}}</td>
+            <td>{{user.email}}</td>
+            
+            <a routerLink="update/{{ user.Id }}"
+                                class="bg-success btn text-white">Güncelle</a>
+        </tr>
+    </tbody>
+</table>

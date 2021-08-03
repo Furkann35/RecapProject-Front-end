@@ -3,9 +3,8 @@
     <div style="margin-top: 120px;" class="col-md-4">
       <h1 style="margin-left: 70px;">Hesap Özeti</h1>
       <div class="card" style="width: 18rem;">
-        
-        
-        <ul *ngIf="car && rentalModel" class="list-group list-group-flush">
+
+ <ul *ngIf="car && rentalModel" class="list-group list-group-flush">
             <li class="list-group-item"><b style="font-weight: 550;">Araba Açıklaması: </b>{{car.description}}</li>
           <li class="list-group-item"><b style="font-weight: 550;">Araba Markası: </b>{{car.brandName}}</li>
           <li class="list-group-item"><b style="font-weight: 550;">Araba Rengi: </b>{{car.colorName}}</li>
@@ -15,8 +14,6 @@
           <li class="list-group-item"><b style="font-weight: 550;">Toplam Tutar: </b>{{price}}</li>
         </ul>     
       </div>
-      
-      
     </div>
     <div style="margin-top: 120px;" class="col-md-4">
       <body class="text-center">
@@ -103,3 +100,4 @@
     </div>
     <div class="col-md-2"></div>
   </div>
+

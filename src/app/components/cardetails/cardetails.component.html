@@ -1,66 +1,80 @@
+<div class="row">
+  <div class="col-md-3">
+
+  </div>
+  <div class="col-md-9">
+
+
+
+
 
     <div *ngIf="car.images.length !== 0" id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-        <div  class="carousel-inner">
-          <div *ngFor="let image of car.images" [class]="setImageClass(image)">
-            <img [src]="baseImageUrl + image" class="d-block w-100" alt="...">
-          </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+      <div class="carousel-inner">
+        <div *ngFor="let image of car.images" [class]="setImageClass(image)">
+          <img [src]="baseImageUrl + image" class="d-block w-100" alt="...">
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+          data-bs-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
           <span class="visually-hidden">Previous</span>
         </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+          data-bs-slide="next">
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
           <span class="visually-hidden">Next</span>
         </button>
       </div>
-      </div>
+    </div>
 
-  <div *ngIf="car.images.length === 0" id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <img [src]="baseImageUrl + defaultImage" class="d-block w-100" alt="...">
+    <div *ngIf="car.images.length === 0" id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img [src]="baseImageUrl + defaultImage" class="d-block w-100" alt="...">
+        </div>
       </div>
     </div>
-  </div>
-<table class="table">
-    <thead>
+    <table class="table">
+      <thead>
         <tr>
 
-            <th>Araç Adı</th>
-            <th>Renk</th>
-            <th>Model Yılı</th>
-            <th>Araç açıklaması</th>
-            <th>Kiralama Ücreti</th>
+          <th>Araç Adı</th>
+          <th>Renk</th>
+          <th>Model Yılı</th>
+          <th>Araç açıklaması</th>
+          <th>Kiralama Ücreti</th>
         </tr>
         <tr>
-            
-            <td>{{car.brandName}}</td>
-            <td>{{car.colorName}}</td>
-            <td>{{car.modelYear}}</td>
-            <td>{{car.description}}</td>
-            <td>{{car.dailyPrice}}</td>
-            <button  (click)="checkIsCarRentable()" type="button" class="btn btn-outline-primary">Kirala</button>
+
+          <td>{{car.brandName}}</td>
+          <td>{{car.colorName}}</td>
+          <td>{{car.modelYear}}</td>
+          <td>{{car.description}}</td>
+          <td>{{car.dailyPrice}}</td>
+          <button (click)="checkIsCarRentable()" type="button" class="btn btn-outline-primary">Kirala</button>
 
         </tr>
-    </thead>
-</table>
+      </thead>
+    </table>
 
-<form [formGroup]="dateForm">
-  <input formControlName="rentDate"  class="form-control" type="date" />
-<input formControlName="returnDate"  class="form-control" type="date" />
-</form>
+    <form [formGroup]="dateForm">
+      <input formControlName="rentDate" class="form-control" type="date" />
+      <br>
+      <input formControlName="returnDate" class="form-control" type="date" />
+    </form>
 
 
 
-<table class="table">
-    <thead>
+    <table class="table">
+      <thead>
         <tr>
-            <th>Kiralama Tarihi</th>
-            <th>Geri Dönüş Tarihi</th>
+          <th>Kiralama Tarihi</th>
+          <th>Geri Dönüş Tarihi</th>
         </tr>
         <tr *ngFor="let rental of car.rentals">
-            <td>{{rental.rentDate | date:"shortDate"}}</td>
-            <td>{{rental.returnDate | date:"shortDate"}}</td>
+          <td>{{rental.rentDate | date:"shortDate"}}</td>
+          <td>{{rental.returnDate | date:"shortDate"}}</td>
         </tr>
-    </thead>
-  </table>
+      </thead>
+    </table>
+  </div>
+</div>

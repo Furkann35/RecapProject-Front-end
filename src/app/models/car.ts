@@ -10,5 +10,4 @@ export interface Car {
     description: string;
     images: string[];
     rentals: Rental[]
-
 }
